@@ -1,0 +1,23 @@
+
+psquid:S2293'"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ùç½
+usquid:S22935"YReplace the type specification in this constructor call with the diamond operator ("<>").(†íğöıÿÿÿÿ
+psquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ä×æÑ
+usquid:S2293*"YReplace the type specification in this constructor call with the diamond operator ("<>").(†íğöıÿÿÿÿ
+psquid:S2293G"YReplace the type specification in this constructor call with the diamond operator ("<>").(÷¹œ„
+psquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(£ı¦
+usquid:S2293="YReplace the type specification in this constructor call with the diamond operator ("<>").(»‚µÔøÿÿÿÿ
+jsquid:UselessImportCheck"ARemove this unused import 'org.springframework.data.domain.Page'.(˜âüÿÿÿÿ
+psquid:S22931"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ùç½
+Tsquid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ
+psquid:S2293C"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ùç½
+nsquid:UselessImportCheck"ERemove this unused import 'org.springframework.data.domain.Pageable'.(‡ë‚Öıÿÿÿÿ
+ksquid:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(¿¯¨âüÿÿÿÿ8¯ç¢Ö.
+fsquid:S4488#"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ÍÙ·Ì8¯ç¢Ö.
+fsquid:S4488."HReplace "@RequestMapping(method = RequestMethod.PUT)" with "@PutMapping"(Õç¼ñ8¯ç¢Ö.
+hsquid:S44888"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(²‘·8¯ç¢Ö.
+lsquid:S4488@"NReplace "@RequestMapping(method = RequestMethod.DELETE)" with "@DeleteMapping"(•“ÛÏ8¯ç¢Ö.
+^squid:S4684$"@Replace this persistent entity with a simple POJO or DTO object.(»„™8¯ç¢Ö.
+csquid:S4684/"@Replace this persistent entity with a simple POJO or DTO object.(Çƒ“Üøÿÿÿÿ8¯ç¢Ö.
+csquid:S4684/"@Replace this persistent entity with a simple POJO or DTO object.(Çƒ“Üøÿÿÿÿ8¯ç¢Ö.
+^squid:S46849"@Replace this persistent entity with a simple POJO or DTO object.(²Ö¦ã8¯ç¢Ö.
+csquid:S4684A"@Replace this persistent entity with a simple POJO or DTO object.(ï”Öäüÿÿÿÿ8¯ç¢Ö.

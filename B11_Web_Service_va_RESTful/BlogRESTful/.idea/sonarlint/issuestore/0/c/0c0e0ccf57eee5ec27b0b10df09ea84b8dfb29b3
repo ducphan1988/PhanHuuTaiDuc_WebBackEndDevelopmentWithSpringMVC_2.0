@@ -1,0 +1,5 @@
+
+Vsquid:S3878]"8Remove this array creation and simply pass the elements.(≈Õ˘Ï8±Á¢÷è.
+âsquid:UselessImportCheck"eRemove this unused import 'org.springframework.web.servlet.config.annotation.ViewControllerRegistry'.(ü‹®∏
+´%squid:RedundantThrowsDeclarationCheck2"sRemove the declaration of thrown exception 'org.springframework.beans.BeansException' which is a runtime exception.(Ø∂Öú8±Á¢÷è.
+]squid:S1192="FDefine a constant instead of duplicating this literal "UTF-8" 5 times.(¿∆é¿

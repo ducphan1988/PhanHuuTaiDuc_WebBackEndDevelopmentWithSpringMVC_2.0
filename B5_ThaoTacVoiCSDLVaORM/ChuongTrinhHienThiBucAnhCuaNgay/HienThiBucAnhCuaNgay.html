@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="img-of-the-day">
+<video id="video-of-the-day" width="320" height="240" controls>
+    Your browser does not support the video tag.
+</video>
+<script>
+    let query = 'https://api.nasa.gov/planetary/apod?api_key=PloubK3yS20f1w0OENT9jOdwfsqSpKztm8e0GEpg';
+    let request = new XMLHttpRequest();
+    request.open('GET', query);
+    request.onload = function() {
+        if (request.status === 200) {
+            let response = JSON.parse(request.responseText);
+            document.getElementById('video-of-the-day').setAttribute('src', response.url);
+            document.getElementById('video-of-the-day').setAttribute('type', 'video/flv');
+        }
+    };
+    request.send();
+</script>
+</body>
+</html>

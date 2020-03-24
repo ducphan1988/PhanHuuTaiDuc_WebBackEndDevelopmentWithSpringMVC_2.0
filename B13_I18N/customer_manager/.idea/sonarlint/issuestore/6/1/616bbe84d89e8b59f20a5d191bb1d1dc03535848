@@ -1,0 +1,3 @@
+
+¤%squid:RedundantThrowsDeclarationCheck4"sRemove the declaration of thrown exception 'org.springframework.beans.BeansException' which is a runtime exception.(¯¶…œ
+Tsquid:S3878b"8Remove this array creation and simply pass the elements.(§¬ÇÅüÿÿÿÿ
