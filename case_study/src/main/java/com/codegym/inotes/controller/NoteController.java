@@ -27,6 +27,8 @@ public class NoteController {
     @Autowired
     private NoteTypeService noteTypeService;
 
+
+
     @GetMapping(value = {"/","/note/list"})
     public ModelAndView index(@RequestParam(name = "noteType")Optional<Integer> noteTypeId,
                               @RequestParam(name = "title") Optional<String> title,
