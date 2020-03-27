@@ -1,12 +1,12 @@
 package com.codegym.blog_manager_spring_boot.controller;
 
 import com.codegym.blog_manager_spring_boot.model.Blog;
-import com.codegym.blog_manager_spring_boot.model.Blog;
 import com.codegym.blog_manager_spring_boot.model.User;
-import com.codegym.blog_manager_spring_boot.service.BlogService;
 import com.codegym.blog_manager_spring_boot.service.BlogService;
 import com.codegym.blog_manager_spring_boot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,13 +21,13 @@ public class BlogController {
     @Autowired
     private UserService userService;
     @ModelAttribute("users")
-    public Iterable<User> blogs(){
-        return userService.findAll();
+    public Page<User> users(Pageable pageable){
+        return userService.findAll(pageable);
     }
 
     @GetMapping({"/blogs","/"})
-    public ModelAndView showBlog(){
-        return new ModelAndView("blog/list","blogs",blogService.findAll());
+    public ModelAndView showBlog(Pageable pageable){
+        return new ModelAndView("blog/list","blogs",blogService.findAll(pageable));
     }
     @GetMapping("/create-blog")
     public ModelAndView createBlog(){

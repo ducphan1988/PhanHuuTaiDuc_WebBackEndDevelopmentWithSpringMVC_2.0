@@ -6,6 +6,7 @@ import com.codegym.blog_manager_spring_boot.model.User;
 import com.codegym.blog_manager_spring_boot.service.BlogService;
 import com.codegym.blog_manager_spring_boot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,8 +23,8 @@ public class UserController {
     private BlogService blogService;
 
     @GetMapping("/users")
-    public ModelAndView listUser(){
-        return new ModelAndView("user/list","users",userService.findAll());
+    public ModelAndView listUser(Pageable pageable){
+        return new ModelAndView("user/list","users",userService.findAll(pageable));
     }
     @GetMapping("/create-user")
     public ModelAndView createUser(){
@@ -77,13 +78,13 @@ public class UserController {
     }
 
     @GetMapping("/view-uses/{id}")
-    public ModelAndView viewUser(@PathVariable("id") Long id){
+    public ModelAndView viewUser(@PathVariable("id") Long id, Pageable pageable){
         User user = userService.findById(id);
         if(user==null){
             return new ModelAndView("/error.404");
         }
 
-        Iterable<Blog> blogs= blogService.findById(user);
+        Iterable<Blog> blogs= blogService.findByUser(user,pageable);
         ModelAndView modelAndView = new ModelAndView("user/view");
         modelAndView.addObject("blogs", blogs);
         modelAndView.addObject("uses", user);
