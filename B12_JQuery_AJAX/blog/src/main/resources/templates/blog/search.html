@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blogs</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" th:inline="javascript">
+        $(document).ready(function() {
+            /*<![CDATA[*/
+            $('#searchForm').submit(function(event) {
+                var nameBlog = $('#nameBlog').val();
+                var quickView = $('#quickView').val();
+                var content = $('#content').val();
+                var json = { "nameBlog" : nameBlog, "quickView" : quickView, "content": content};
+                $.ajax({
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    type : "POST",
+                    data: JSON.stringify(json),
+                    url: "/blogs/searchAjax",
+                    success: function(res) {
+                        var respContent = "";
+                        var blogs = res;
+                        respContent += "<tr>\n" +
+                            "        <th>Name Blog</th>\n" +
+                            "        <th>Summary</th>\n" +
+                            "        <th>View Full Blog</th>\n" +
+                            "        <th>Content</th>\n" +
+                            "        <th>Category</th>\n" +
+                            "        <th>Update Blog</th>\n" +
+                            "        <th>Delete Blog</th>\n" +
+                            "    </tr>\n" ;
+                        for(i =0;i<blogs.length;i++) {
+                            respContent += "        <tr>\n" +
+                                "            <td> " + blogs[i].id + "</td>\n" +
+                                "            <td> " + blogs[i].nameBlog + "</td>\n" +
+                                "            <td> " + blogs[i].quickView + "</td>\n" +
+                                "            <td> " + blogs[i].content + "</td>\n" +
+                                "            <td> " + blogs[i].category.name + "</td>\n" +
+                                "            <td><a href=\"\/blogs\/" + blogs[i].id + "\/edit\">Edit</a></td>\n" +
+                                "            <td><a href=\"\/blogs\/" + blogs[i].id + "\/delete\">Delete</a></td>\n" +
+                                "        </tr>\n";
+                        }
+                        $("#searchResult").html(respContent);
+                    }
+                });
+                event.preventDefault();
+            });
+        });
+        /*]]>*/
+    </script>
+</head>
+<body>
+<a href="/blogs/create">Create new blog</a>
+<h1>Blogs</h1>
+
+
+<form id="searchForm" th:object="${blog}">
+    <table>
+        <tr>
+            <td>Name Blog:</td>
+            <td><input type="text" th:field="*{nameBlog}"/></td>
+        </tr>
+        <tr>
+            <td>Summary:</td>
+            <td><input type="text" th:field="*{quickView}"/></td>
+        </tr>
+        <tr>
+            <td>Content Blog:</td>
+            <td><textarea th:field="*{content}"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Search Blog"></td>
+        </tr>
+        <tr>
+            <td>Category:</td>
+            <td>
+                <select th:field="*{category}">
+                    <option th:each="c : ${categories}" th:value="${c.id}" th:text="${c.nameCategory}"></option>
+                </select>
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+<table id="searchResult" border="1">
+<!--    <tr>-->
+<!--        <th>Name Blog</th>-->
+<!--        <th>Summary</th>-->
+<!--        <th>View Full Blog</th>-->
+<!--        <th>Category</th>-->
+<!--        <th>Update Blog</th>-->
+<!--        <th>Delete Blog</th>-->
+<!--    </tr>-->
+<!--    <th:block th:each="blog : ${blogs}">-->
+<!--        <tr>-->
+<!--            <td th:text="${blog.nameBlog}"></td>-->
+<!--            <td th:text="${blog.quickView}"></td>-->
+<!--            <td th:text="${blog.category.nameCategory}"></td>-->
+<!--            <td><a th:href="@{/blogs/__${blog.id}__}">View</a></td>-->
+<!--            <td><a th:href="@{/blogs/__${blog.id}__}/edit">Update</a></td>-->
+<!--            <td><a th:href="@{/blogs/__${blog.id}__/delete}">Delete</a></td>-->
+<!--        </tr>-->
+<!--    </th:block>-->
+</table>
+<a href="/category"><h3>Category List</h3></a>
+</body>
+</html>

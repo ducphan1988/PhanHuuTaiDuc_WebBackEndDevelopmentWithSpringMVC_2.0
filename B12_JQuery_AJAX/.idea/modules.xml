@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/B12_JQuery_AJAX.iml" filepath="$PROJECT_DIR$/.idea/B12_JQuery_AJAX.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blog/blogUpdate.iml" filepath="$PROJECT_DIR$/blog/blogUpdate.iml" />
+    </modules>
+  </component>
+</project>
